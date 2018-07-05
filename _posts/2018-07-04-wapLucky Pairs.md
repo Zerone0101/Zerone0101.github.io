@@ -1,7 +1,7 @@
 ---
 title: WAP Lucky Pairs
 key: WAP Lucky Pairs
-tags: online coding test
+tags: online_coding_test
 ---
 
 7 is known as the lucky number. And if a number is a multiple of 7, it's also lucky.
@@ -11,6 +11,7 @@ Note that:
 (11, 2) -> 112 and (2, 11) -> 211 are considered as different pairs.
 (1, 11) -> 111 and (11, 1) -> 111 are also different.
 You want to know many lucky pairs?
+
 输入描述:
 
     The input consists of two lines.
@@ -21,6 +22,7 @@ You want to know many lucky pairs?
     30%   n <= 100,    0 < ai <= 1000
     70%   n <= 1000,   0 < ai <= 10^9
     100%  n <= 100000, 0 < ai <= 10^9
+
 输出描述:
 
     Output a single line containing the number of lucky pairs.
@@ -40,7 +42,7 @@ You want to know many lucky pairs?
 **Discuss:**
 
 there are n(n-1) pairs, for the bigges test, it will be time limited for O(n^2)
-
+
 **Code:**
 
 ```java
