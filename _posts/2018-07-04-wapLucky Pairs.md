@@ -39,7 +39,7 @@ You want to know many lucky pairs?
 
 **Discuss:**
 
-
+there are n(n-1) pairs
 
 **Code:**
 
@@ -49,16 +49,38 @@ public class Main{
     public static int luckyPairs(int[] nums){
         int n = nums.length;
         int cnt = 0;
-        
+        int[][] dp = new int[11][7];
+        for(int i = 0; i < n; ++ i){
+            long multi = 1;
+            for(int j = 1; j <= 9; ++ j){
+                multi *= 10;
+                long cur = (long)nums[i] * multi; // all num move left 1-10 digits
+                int mod = (int)(cur % 7);         // store all left num % 7
+                dp[j][mod] += 1;
+            }
+        }
+        for(int i = 0; i < n; ++ i){
+            long cur = (long)nums[i];
+            int curMod = (int)(cur % 7);
+            int digits = String.valueOf(cur).length();
+            int remainder = (7-curMod)%7;
+            cnt += dp[digits][remainder];         // cur num as the right, how many right is qualified
+            long multi = 1;
+            for(int j = 0; j < digits; ++ j) multi *= 10;
+            cur = multi * cur;
+            if(cur % 7 == (remainder)) cnt -= 1; // remove self concat self
+        }
         return cnt;
     }
+
+
     public static void main(String[] args) {
-       Scanner in = new Scanner(System.in);
-       int n = in.nextInt();
-       int[] nums = new int[n];
-       for(int i = 0; i < n; ++ i) nums[i] = in.nextInt();
-       int res = luckyPairs(nums);
-       System.out.println(res);
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] nums = new int[n];
+        for(int i = 0; i < n; ++ i) nums[i] = in.nextInt();
+        int res = luckyPairs(nums);
+        System.out.println(res);
     }
 }
 ```
