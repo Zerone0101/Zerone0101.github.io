@@ -39,7 +39,7 @@ You want to know many lucky pairs?
 
 **Discuss:**
 
-there are n(n-1) pairs
+there are n(n-1) pairs, for the bigges test, it will be time limited for O(n^2)
 
 **Code:**
 
